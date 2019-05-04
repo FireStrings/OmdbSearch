@@ -22,20 +22,22 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:orientation="horizontal">>
-        <android.inputmethodservice.ExtractEditText
-                android:layout_width="265dp"
-                android:layout_height="wrap_content"
+        <EditText
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
                 android:hint="Título"
+                android:id="@+id/campoTitulo"
 
         />
         <Button
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="Buscar"
-                android:textColor="#ffffff"
+                android:textColor="#ffff"
                 android:textStyle="bold"
                 android:background="@color/colorBar"
+                android:id="@+id/btnBuscar"
 
         />
     </LinearLayout>
