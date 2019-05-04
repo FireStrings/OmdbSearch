@@ -1,46 +1,64 @@
 package com.ifsp.omdbsearch.activity
 
-import android.app.Activity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.ifsp.omdbsearch.R
+
 import com.ifsp.omdbsearch.controller.Engine
+import com.ifsp.omdbsearch.model.Constantes
 import kotlinx.android.synthetic.main.activity_search_by_name.*
+import kotlinx.android.synthetic.main.activity_search_by_name.view.*
+
 
 class SearchByNameActivity : Fragment() {
+    lateinit var mensagemHandler: MensagemHandler
+    private lateinit var listView : ListView
 
+    inner class MensagemHandler: Handler() {
+        override fun handleMessage(msg: Message?) {
+            if (msg?.what == 1) {
+
+                val gson = Gson()
+                val listItems = mutableListOf<String>()
+
+                val newList: Map<String, Any> = gson.fromJson(msg.obj.toString(), object : TypeToken<Map<String, Any>>() {}.type)
+
+                newList.forEach {
+                        k, v ->
+                    listItems.add("$k : $v")
+                }
+
+                val adapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, listItems)
+                listView.adapter = adapter
+
+            }
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        val v: View = inflater!!.inflate(R.layout.activity_search_by_name, container, false)
 
-        //Log.v("clique", "CLICOU!")
+        listView = v.resultFilmeNome
 
-        /*btnBuscarNome.setOnClickListener {
-            Log.v("clique", "CLICOU")
-        }*/
+        mensagemHandler = MensagemHandler()
 
-        /*btnBuscarNome.setOnClickListener {
-            // Testa se o usuário digitou alguma coisa para buscar
-            Log.v("clique", "CLICOU")
-            if (campoTitulo.text.isNotEmpty()) {
-                // Instancia um engine para fazer a chamada ao WS
-                //val engine: Engine = Engine()
-                // Solicita a busca com base nos parâmetros selecionados pelo usuário
-                //engine.main()
-            }
-            else {
-                // Senão, mostra uma mensagem na parte debaixo do LinearLayout
-                //mainLl.snackbar("É preciso digitar uma palavra para ser traduzida")
-            }
-        }*/
-
-
-        return inflater?.inflate(R.layout.activity_search_by_name, null)
+        v.btnBuscarNome.setOnClickListener { v ->
+            val t = Engine(this, Constantes.APP_TITLE_FIELD, campoTitulo.text.toString())
+            t.main()
+        }
+        return v
 
     }
+
+
 }
