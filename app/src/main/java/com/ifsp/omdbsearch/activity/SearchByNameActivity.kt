@@ -18,7 +18,7 @@ class SearchByNameActivity : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
 
-        //Log.v("clique", "CLICOU")
+        //Log.v("clique", "CLICOU!")
 
         /*btnBuscarNome.setOnClickListener {
             Log.v("clique", "CLICOU")
