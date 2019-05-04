@@ -16,7 +16,6 @@ import org.json.JSONObject
 class Engine(val mainActivity: MainActivity) {
 
     fun main() {
-        Log.v("TESTE", "INIT MAIN")
         val filaRequisicaoTraducao: RequestQueue = Volley.newRequestQueue(mainActivity)
 // Monta a requisição que será colocada na fila. Esse objeto é uma instância de uma classe anônima
         var traducaoJORequest: JsonObjectRequest =
