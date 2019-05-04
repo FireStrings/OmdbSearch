@@ -37,7 +37,7 @@
                 android:textColor="#ffff"
                 android:textStyle="bold"
                 android:background="@color/colorBar"
-                android:id="@+id/btnBuscar"
+                android:id="@+id/btnBuscarNome"
 
         />
     </LinearLayout>
