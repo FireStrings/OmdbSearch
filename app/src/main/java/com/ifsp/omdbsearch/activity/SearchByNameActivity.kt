@@ -36,16 +36,19 @@ class SearchByNameActivity : Fragment() {
                 val listItems = mutableListOf<String>()
 
                 val newList: Map<String, Any> = gson.fromJson(msg.obj.toString(), object : TypeToken<Map<String, Any>>() {}.type)
-
+                val img = poster
+                var found = 0 as Int
                 newList.forEach {
                         k, v ->
                     listItems.add("$k : $v")
                     val titulo: String
                     if(k == "Poster"){
-
-                        val img = poster
+                         found = 1
                         Glide.with(context).load(v as String).into(img)
                         Log.v("link", v as String)
+                    }
+                    if(found != 1){
+                        Glide.with(context).load("https://img.icons8.com/material/420/nothing-found.png").into(img)
                     }
                     //Log.v("link", v as String?)
                 }

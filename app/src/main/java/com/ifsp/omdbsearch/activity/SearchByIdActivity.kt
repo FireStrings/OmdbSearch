@@ -34,15 +34,21 @@ class SearchByIdActivity : Fragment() {
 
                 val newList: Map<String, Any> = gson.fromJson(msg.obj.toString(), object : TypeToken<Map<String, Any>>() {}.type)
 
+
                 newList.forEach {
                         k, v ->
                     listItems.add("$k : $v")
-
+                    var found = 0
+                    val img = poster_id
                     if(k == "Poster"){
+                        found = 1
 
-                        val img = poster_id
                         Glide.with(context).load(v as String).into(img)
                         Log.v("link", v as String)
+                    }
+
+                    if(found != 1){
+                        Glide.with(context).load("https://img.icons8.com/material/420/nothing-found.png").into(img)
                     }
                 }
 
