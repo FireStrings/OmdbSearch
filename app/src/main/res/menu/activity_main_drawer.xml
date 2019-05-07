@@ -17,13 +17,13 @@
     <item android:title="Links github">
         <menu>
             <item
-                    android:id="@+id/nav_share"
+                    android:id="@+id/git_leo"
                     android:icon="@drawable/ic_people"
                     android:title="Leonardo :: 3003868"/>
             <item
-                    android:id="@+id/nav_send"
+                    android:id="@+id/git_rafa"
                     android:icon="@drawable/ic_people"
-                    android:title="Rafael :: 300XXXX"/>
+                    android:title="Rafael :: 3004155"/>
         </menu>
     </item>
 

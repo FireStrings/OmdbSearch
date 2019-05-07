@@ -1,7 +1,11 @@
 package com.ifsp.omdbsearch.activity
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -54,6 +58,31 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
     }
 
     fun  displayScreen (id: Int){
+
+        if(id == R.id.git_leo){
+
+            //val webpage: Uri
+            val webpage = Uri.parse("https://github.com/firestrings")
+            val intent = Intent(Intent.ACTION_VIEW, webpage)
+            val b = Bundle()
+            b.putBoolean("new_window", true)
+            intent.putExtras(b)
+            startActivity(intent)
+
+        }
+
+        if(id == R.id.git_rafa){
+
+            //val webpage: Uri
+            val webpage = Uri.parse("https://github.com/RafaelRodrigues7")
+            val intent = Intent(Intent.ACTION_VIEW, webpage)
+            val b = Bundle()
+            b.putBoolean("new_window", true)
+            intent.putExtras(b)
+            startActivity(intent)
+
+        }
+
         val fragment = when (id){
 
             R.id.byName -> {
