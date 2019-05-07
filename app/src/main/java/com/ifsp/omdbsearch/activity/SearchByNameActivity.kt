@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.ListView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -17,6 +20,8 @@ import com.ifsp.omdbsearch.controller.Engine
 import com.ifsp.omdbsearch.model.Constantes
 import kotlinx.android.synthetic.main.activity_search_by_name.*
 import kotlinx.android.synthetic.main.activity_search_by_name.view.*
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.nav_header_main.*
 
 
 class SearchByNameActivity : Fragment() {
@@ -35,6 +40,14 @@ class SearchByNameActivity : Fragment() {
                 newList.forEach {
                         k, v ->
                     listItems.add("$k : $v")
+                    val titulo: String
+                    if(k == "Poster"){
+
+                        val img = poster
+                        Glide.with(context).load(v as String).into(img)
+                        Log.v("link", v as String)
+                    }
+                    //Log.v("link", v as String?)
                 }
 
                 val adapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, listItems)

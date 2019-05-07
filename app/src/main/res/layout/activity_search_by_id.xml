@@ -41,6 +41,15 @@
 
         />
     </LinearLayout>
+
+    <ImageView
+            android:layout_width="150dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:id="@+id/poster_id"
+    />
+
     <ListView
             android:id="@+id/resultFilmeID"
             android:layout_width="wrap_content"
