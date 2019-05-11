@@ -8,7 +8,8 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:openDrawer="start"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:screenOrientation="portrait" >
 
     <include
             layout="@layout/app_bar_main"
