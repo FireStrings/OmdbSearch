@@ -93,8 +93,12 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 SearchByIdActivity ()
             }
 
+            R.id.home -> {
+                InicialACtivity ()
+            }
+
             else -> {
-                Main2Activity()
+                InicialACtivity()
             }
         }
 

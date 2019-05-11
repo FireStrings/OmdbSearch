@@ -18,11 +18,10 @@ import com.ifsp.omdbsearch.controller.Engine
 import com.ifsp.omdbsearch.model.Constantes
 import kotlinx.android.synthetic.main.activity_search_by_id.*
 import kotlinx.android.synthetic.main.activity_search_by_id.view.*
-import kotlinx.android.synthetic.main.activity_search_by_name.*
 
 class SearchByIdActivity : Fragment() {
 
-    lateinit var mensagemHandler: SearchByIdActivity.MensagemHandler
+    lateinit var mensagemHandler: MensagemHandler
     private lateinit var listView : ListView
 
     inner class MensagemHandler: Handler() {

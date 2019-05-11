@@ -12,6 +12,11 @@
                 android:id="@+id/byId"
                 android:icon="@drawable/ic_id"
                 android:title="Por ID"/>
+
+        <item
+                android:id="@+id/home"
+                android:icon="@drawable/ic_home_black_24dp"
+                android:title="Home"/>
     </group>
 
     <item android:title="Links github">
